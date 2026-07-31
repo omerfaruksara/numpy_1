@@ -19,10 +19,10 @@ def bisection_method(func, a, b, tol = 1e-5, max_iter=100):
         #We check whether the function value at the midpoint is zero, which means we have found the root.
         if func(c)== 0:
             return c
-        elif func(c)<0:
-            a = c
-        else:
+        elif func(c) * func(a) < 0:
             b = c
+        else:
+            a = c
 
         #We increment the iteration count.
         iter_count += 1
